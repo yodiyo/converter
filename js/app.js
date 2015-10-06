@@ -10,64 +10,43 @@ app.controller("conversionCtrl",function($scope) {
     'pints'
   ];
 
-  var number = $scope.value;
+  $scope.value = 0; 
 
-  console.log(number);
+  var testvalue = function(){
+    var newValue = new $scope.value;
+  }
+  console.log(newValue);
 
-
-  var howMany = $scope.data;
-
-
-  console.log(howMany);
-
-
-
-
-   //$scope.unitValue = 1;
-
-//    selectedOption: {id: '1', name: 'Kilogrammes'} //default value 
-
-
-
-   //$scope.selected = data.repeatSelect;
-
-  // 1 litre = 1.759 753 986 pint // 1 pint = 0.568 litre
-
-  //var unit = $scope.data.availableOptions;
-
-//  console.log (unit[3].name);
-
-
-
-// function convertUnits(kg, lbs, oz, pints) {
-//   var convertedValue;
-//   if (kg){
-//     convertedValue = Math.round(unitValue*2);
-//     return convertedValue;
-//   }
-
-// }
-
-
-//   function convertUnits(cm, inches, kilos, lbs) {
-//     var convertedValue;
-//     if (cm) {
-//       convertedValue = Math.round(cm / 2.54);
-//     } else if (inches) {
-//       convertedValue = Math.round(inches * 2.54);
-//     } else if (kilos) {
-//       convertedValue = Math.round(kilos * 2.20462);
-//     } else {
-//       convertedValue = Math.round(lbs / 2.20462);
-//     }
-//     return convertedValue;
-//   }
-
-
-  // 1 kilogram = 35.273 961 95 ounce // 1 ounce = 0.028 349 523 kilogram
-
+  $scope.result = function(value){
+    var valueKg, valueLitres, valueOunces, valuePints;
+    if ($scope.units === 'kilogrammes') {
+      valueLitres = Math.round(value*1);
+      valuePints = Math.round(value*1.759753986392702);
+      valueOunces = Math.round(value*1.759753986392702);
+       
+      console.log(valueLitres, valuePints, valueOunces);
+    } else if ($scope.units === 'litres') {
+        valueKg = Math.round(value*1);
+        valuePints = Math.round(value*1.759753986392702);
+        valueOunces = Math.round(value*1.759753986392702);
+    } else if ($scope.units === 'ounces') {
+        valueKg = Math.round(value*0.0284131);
+        valuePints = Math.round(value*0.050000065991);
+        valueLitres = Math.round(value*0.0284131);
+    } else if ($scope.units === 'pints') {
+        valueKg = Math.round(value*0.56826125);
+        valueOunces = Math.round(value*020);
+        valueLitres = Math.round(value*0.568262000002563);
+      }
+  };
 
 
 });
+
+
+
+
+
+
 
 

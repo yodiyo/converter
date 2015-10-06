@@ -1,5 +1,11 @@
-/*md-input-container {
+/*================
+use: css for converter app
+author: Yorick Brown 2015
+=================*/
+
+
+md-input-container {
 	width:45%; 
 	display:inline-block;
 	min-height:3em;
-}*/
+}
