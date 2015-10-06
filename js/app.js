@@ -12,11 +12,6 @@ app.controller("conversionCtrl",function($scope) {
 
   $scope.value = 0; 
 
-  var testvalue = function(){
-    var newValue = new $scope.value;
-  }
-  console.log(newValue);
-
   $scope.result = function(value){
     var valueKg, valueLitres, valueOunces, valuePints;
     if ($scope.units === 'kilogrammes') {
