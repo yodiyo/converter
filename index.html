@@ -38,19 +38,25 @@
                 </md-select>
             </md-input-container>
             
-            <!-- display amount and selected unit -->
-            <h2 class='unit-value'>You want to convert <span ng-model='inputValue'>{{value}}</span> <span ng-model='selectedUnit'>{{unit}}</span></h2>
+            <div class='results' ng-show='value > 0'>
+                <!-- display amount and selected unit -->
+                <h2  class='unit-value'>You want to convert <span ng-model='inputValue'>{{value}}</span> <span ng-model='selectedUnit'>{{unit}}</span></h2>
 
-            <!-- display equivalent amount in other units -->
-            <ul >
-                <li>
-                    That is the equivalent of around {{measure.value}} {{measure.name}}
-                    <span ng-bind="value * 2.20462"></span> lbs 
+                <!-- display equivalent amount in other units -->
+                <ul >
+                    <li>
+                        That is the equivalent of around 
+                       <span ng-bind="value * 1.759753986392702"></span> pints
 
-                    <span ng-bind='{{result.valueLitres}}'>{{result}}</span>
-                </li>
-            </ul>
+                    </li>
+                    <li>
+                        And about 
+                        <span ng-bind="value * 35.2739619496"></span> oz 
 
+                      
+                    </li>
+                </ul>
+            </div>
         </form>
     </div>
     

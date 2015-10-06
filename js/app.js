@@ -10,6 +10,8 @@ app.controller("conversionCtrl",function($scope) {
     'pints'
   ];
 
+  $scope.unit = 'kilogrammes';
+
   $scope.value = 0; 
 
   $scope.result = function(value){
@@ -17,13 +19,14 @@ app.controller("conversionCtrl",function($scope) {
     if ($scope.units === 'kilogrammes') {
       valueLitres = Math.round(value*1);
       valuePints = Math.round(value*1.759753986392702);
-      valueOunces = Math.round(value*1.759753986392702);
+      valueOunces = Math.round(value*35.2739619496);
        
       console.log(valueLitres, valuePints, valueOunces);
+    
     } else if ($scope.units === 'litres') {
         valueKg = Math.round(value*1);
         valuePints = Math.round(value*1.759753986392702);
-        valueOunces = Math.round(value*1.759753986392702);
+        valueOunces = Math.round(value*35.2739619496);
     } else if ($scope.units === 'ounces') {
         valueKg = Math.round(value*0.0284131);
         valuePints = Math.round(value*0.050000065991);
