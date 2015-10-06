@@ -8,27 +8,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convert me!</title>
-    <meta name="description" content="">
+    <meta name="description" content="A utility to convert measurements">
+
+    <!-- angular material -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
+    <!-- angular material font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    
+    <!-- additional styles -->
     <link rel="stylesheet" href="css/app.css">
     
 </head>
 
 <body>
+    <!-- create app controller - cloak on load-->
     <div ng-controller=conversionCtrl class="md-padding" ng-cloak>
         <h1>Convert me!</h1>
+
+        <!-- form for adding amount and selecting units -->
         <form name="selectUnits" >
             <md-input-container>
-                <label>Number</label>
-                <input aria-label="number" type="number" name="input" ng-model="value" min="1" />
-                <!-- <div role="alert">
-                    <span class="error" ng-show="selectUnits.input.$error.required">
-                      A number is required!</span>
-                    <span class="error" ng-show="selectUnits.input.$error.number">
-                      Hey, that's not a valid number!</span>
-                </div> -->
-
+                <input aria-label="number" placeholder='How much?' type="number" name="input" ng-model="value" min="1" />
             </md-input-container>
 
             <md-input-container>
@@ -37,30 +37,31 @@
                     <md-option ng-repeat="unit in units" value="{{unit}}">{{unit}}</md-option>
                 </md-select>
             </md-input-container>
-                
-            <h2 class='unit-value' ng-model='data.repeatSelect' >You want to convert {{value}} {{unit}}</h2>
+            
+            <!-- display amount and selected unit -->
+            <h2 class='unit-value'>You want to convert <span ng-model='inputValue'>{{value}}</span> <span ng-model='selectedUnit'>{{unit}}</span></h2>
 
-
-            <ul ng-repeat='measure in measures'>
+            <!-- display equivalent amount in other units -->
+            <ul >
                 <li>
-                    That is {{measure.value}} {{measure.name}}
+                    That is the equivalent of around {{measure.value}} {{measure.name}}
+                    <span ng-bind="value * 2.20462"> lbs </span>
+
+                    <span ng-bind='{{result.valueLitres}}'>{{result}}</span>
                 </li>
             </ul>
 
-           <!--  <ul class="phones">
-  <li ng-repeat="unit in data | filter:query | orderBy:orderProp">
-    <span>{{unit.name}}</span>
-    <p>{{unit.id}}</p>
-  </li>
-</ul> -->
-
         </form>
     </div>
+    
+    <!-- cdn angular and angular material -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    <!-- app js -->
     <script src="js/app.js"></script>
 </body>
 
